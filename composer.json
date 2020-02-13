@@ -1,0 +1,13 @@
+{
+    "name": "",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "FW\\": "vendor/framework",
+            "App\\": "app"
+        }
+    },
+    "require": {
+        "gabordemooij/redbean": "dev-master"
+    }
+}
