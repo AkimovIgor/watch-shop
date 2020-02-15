@@ -16,7 +16,7 @@
             <div class="heading-part">
             <h2 class="main_title">Top category</h2>
             </div>
-            <ul class="nav  main-navigation collapse in">
+            <ul class="nav main-navigation collapse in">
                 <?php foreach ($categories as $category): ?>
                     <?php if ($category['parent_id'] != 0): ?>
                         <li><a href="categories/<?= $category['slug'] ?>"><?= $category['title'] ?></a></li>

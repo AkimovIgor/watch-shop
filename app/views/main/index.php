@@ -204,7 +204,7 @@
                 <div class="product-grid">
                     <div class="item">
                     <div class="product-thumb">
-                        <div class="image product-imageblock"> <a href="product/<?= $product->slug ?>"> <img data-name="product_image" src="images/product/<?= $product->image ?>" alt="iPod Classic" title="<?= $product->title ?>" class="img-responsive">  </a>
+                        <div class="image product-imageblock"> <a href="products/<?= $product->slug ?>"> <img data-name="product_image" src="images/product/<?= $product->image ?>" alt="iPod Classic" title="<?= $product->title ?>" class="img-responsive">  </a>
                         <div class="button-group text-center">
                             <div class="wishlist"><a href="#"><span>wishlist</span></a></div>
                             <div class="quickview"><a href="#"><span>Quick View</span></a></div>
@@ -345,7 +345,7 @@
                 <div class="brand owl-carousel ptb_20">
                     <?php foreach ($brands as $brand): ?>
                         <div class="item text-center">
-                            <a href="#">
+                            <a href="brands/<?= $brand->slug ?>">
                                 <img src="images/brand/<?= $brand->image ?>" alt="<?= $brand->title ?>" class="img-responsive" />
                             </a>
                         </div>

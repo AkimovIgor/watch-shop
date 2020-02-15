@@ -35,6 +35,7 @@ use FW\App;
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
   <link rel="shortcut icon" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
@@ -101,11 +102,12 @@ use FW\App;
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-4">
-              <div class="main-search mt_40">
-                <input id="search-input" name="search" value="" placeholder="Search" class="form-control input-lg" autocomplete="off" type="text">
+              <form action="search" class="main-search mt_40" style="background: #000;">
+                <input id="search-input" name="s" value="" placeholder="Search" class="form-control input-lg typeahead" autocomplete="off" type="text">
                 <span class="input-group-btn">
-              <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-              </span> </div>
+              <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+              </span> 
+            </form>
             </div>
             <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href="/"> <img alt="themini" src="images/logo.png"> </a> </div>
             <div class="col-xs-6 col-sm-4 shopcart">
@@ -143,12 +145,12 @@ use FW\App;
                     </table>
                   </li>
                   <li>
-                    <form action="cart">
+                    <a href="cart">
                       <input class="btn pull-left mt_10" value="View cart" type="submit">
-                    </form>
-                    <form action="checkout">
+                    </a>
+                    <a href="checkout">
                       <input class="btn pull-right mt_10" value="Checkout" type="submit">
-                    </form>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -297,6 +299,10 @@ use FW\App;
   <script src="js/jQuery_v3.1.1.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/typeahead.bundle.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
   <!-- <script src="js/jquery.magnific-popup.js"></script> -->
   <!-- <script src="js/jquery.firstVisitPopup.js"></script> -->
   <script src="js/jquery.mousewheel.js"></script>
@@ -328,11 +334,14 @@ use FW\App;
     });
   </script>
   
-  <script src="js/custom.js"></script>
+  
   <?php $currency = App::$app->getProperty('currency'); ?>
   <script>
     var curVal = '<?= $currency['value'] ?>';
     var curTitle = '<?= $currency['title'] ?>';
+    var symbolLeft = '<?= $currency['symbol_left'] ?>';
+    var symbolRight = '<?= $currency['symbol_right'] ?>';
+    var path = '<?= URL ?>';
   </script>
   <script src="js/main.js"></script>
 </body>

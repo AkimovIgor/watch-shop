@@ -21,7 +21,7 @@
                 <td class="text-center"><?= !empty($product['mod']) ? $product['mod'] : 'Standart' ?></td>
                 <td class="text-center">
                     <div style="max-width: 200px;" class="input-group btn-block">
-                        <input type="text" data-id="<?= $id ?>" class="form-control quantity" size="1" value="<?= $product['qty'] ?>" name="quantity">
+                        <input type="text" data-id="<?= $id ?>" class="form-control quantity" max="20" size="1" value="<?= $product['qty'] ?>" name="quantity">
                     </div>
                 </td>
                 <td class="text-center"><span class="currencySymbol"><?= $currency['symbol_left'] ?> </span><span><?= number_format($product['price'] * $currency['value'], 2, '.', '') ?></span><span class="currencySymbol"><?= $currency['symbol_right'] ?></span></td>
@@ -51,12 +51,12 @@
     </table>
 </div>
 </div>
-<form action="/">
+<a href="shop">
 <input class="btn pull-left mt_30" type="submit" value="Continue Shopping" />
-</form>
-<form action="checkout">
+</a>
+<a href="checkout">
 <input class="btn pull-right mt_30" type="submit" value="Checkout" />
-</form>
+</a>
 <?php else: ?>
 <h1>Your cart is empty.</h1>
 <?php endif; ?>

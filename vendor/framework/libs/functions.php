@@ -194,3 +194,15 @@ function redirect($http = null)
 	header("Location: {$redirect}");
 	exit;
 }
+
+/**
+ * Экранировать специальные символы
+ * 
+ * @param string $str
+ *
+ * @return string
+ */
+function hsc($str)
+{
+	return htmlspecialchars($str, ENT_QUOTES);
+}

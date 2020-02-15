@@ -14,7 +14,7 @@ $count = isset($category['childs']) ? count($category['childs']) : null;
             <li class="col-md-3">
                 <ul>
             <?php endif; ?>   
-                <li><a href="#"><?= $item['title'];?></a></li>
+                <li><a href="categories/<?= $item['slug'];?>"><?= $item['title'];?></a></li>
             <?php if ($i % 5 == 4 || $i == $count-1): ?>    
                 </ul>
             </li>

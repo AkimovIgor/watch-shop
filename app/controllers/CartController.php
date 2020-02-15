@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Cart;
+use FW\App;
 use RedBeanPHP\R;
 
 class CartController extends BaseController
@@ -11,9 +12,11 @@ class CartController extends BaseController
     {
         $products = $_SESSION['cart'];
         $currency = $this->currency;
-        // dd($products);
+        $tops = R::findAll('products', 'is_top = 1');
+        $categories = App::$app->getProperty('categories');
+        $brands = R::findAll('brands');
         $this->setMeta();
-        $this->setData(compact('products', 'currency'));
+        $this->setData(compact('products', 'currency', 'tops', 'categories', 'brands'));
     }
 
     public function add()
@@ -33,8 +36,9 @@ class CartController extends BaseController
 
         $cart = new Cart();
         $cart->addToCart($product, $quantity, $modification);
+        $currency = $this->currency;
         if ($this->isAjax()) {
-            $this->loadView('cart_tpl');
+            $this->loadView('cart_tpl', compact('currency'));
         }
         redirect();
     }
@@ -45,8 +49,9 @@ class CartController extends BaseController
         if ($id) {
             $cart = new Cart();
             $cart->deleteItem($id);
+            $currency = $this->currency;
             if ($this->isAjax()) {
-                $this->loadView('cart_tpl');
+                $this->loadView('cart_tpl', compact('currency'));
             }
         }
         redirect();

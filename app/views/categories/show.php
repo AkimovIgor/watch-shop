@@ -3,32 +3,92 @@
     <!-- =====  BANNER STRAT  ===== -->
     <div class="col-sm-12">
         <div class="breadcrumb ptb_20">
-        <h1>Shopping Cart</h1>
+        <h1>Products</h1>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Shopping Cart</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="categories">Categories</a></li>
+            <li class="active"><?= $cat['title'] ?></li>
         </ul>
         </div>
     </div>
     <!-- =====  BREADCRUMB END===== -->
-    <div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
-        <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" style="" role="button">
+    <div id="column-left" class="col-sm-4 col-lg-3 ">
+        <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" role="button">
         <div class="nav-responsive">
             <div class="heading-part">
             <h2 class="main_title">Top category</h2>
             </div>
             <ul class="nav  main-navigation collapse in">
-            <?php foreach ($categories as $category): ?>
-                <?php if ($category['parent_id'] != 0): ?>
-                    <li><a href="categories/<?= $category['slug'] ?>"><?= $category['title'] ?></a></li>
-                <?php endif; ?>
-            <?php endforeach; ?>
+                <?php foreach ($categories as $category): ?>
+                    <?php if ($category['parent_id'] != 0): ?>
+                        <li><a href="categories/<?= $category['slug'] ?>"><?= $category['title'] ?></a></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </ul>
         </div>
         </div>
-        <div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
+        <div class="filter left-sidebar-widget mb_50">
+        <div class="heading-part mtb_20 ">
+            <h2 class="main_title">Refinr Search</h2>
+        </div>
+        <div class="filter-block">
+            <p>
+            <label for="amount">Price range:</label>
+            <input type="text" id="amount" readonly>
+            </p>
+            <div id="slider-range" class="mtb_20 ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                <!-- <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 14.8%; width: 71.4%;"></div> -->
+                <!-- <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.8%;"></span> -->
+                <!-- <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 86.2%;"></span> -->
+            </div>
+            <div class="list-group">
+            <div class="list-group-item mb_10">
+                <label>Color</label>
+                <div id="filter-group1">
+                <div class="checkbox">
+                    <label>
+                    <input value="White" type="checkbox"> White </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input value="Black" type="checkbox"> Black </label>
+                </div>
+                <div class="checkbox ">
+                    <label>
+                    <input value="Gold" type="checkbox"> Gold
+                    </label>
+                </div>
+                <div class="checkbox ">
+                    <label>
+                    <input value="Onyx" type="checkbox"> Onyx
+                    </label>
+                </div>
+                </div>
+            </div>
+            <!-- <div class="list-group-item mb_10">
+                <label>Size</label>
+                <div id="filter-group3">
+                <div class="checkbox">
+                    <label>
+                    <input value="" type="checkbox"> Big (3)</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input value="" type="checkbox"> Medium (2)</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input value="" type="checkbox"> Small (1)</label>
+                </div>
+                </div>
+            </div> -->
+            <button id="refine" type="button" class="btn" data-category="<?= $cat['slug'] ?>">Refine Search</button>
+            </div>
+        </div>
+        </div>
+        <div class="left_banner left-sidebar-widget mb_50"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
         <div class="left-special left-sidebar-widget mb_50">
-        <div class="heading-part mb_20 ">
+        <div class="heading-part mb_10 ">
             <h2 class="main_title">Top Products</h2>
         </div>
         <div id="left-special" class="owl-carousel">
@@ -75,16 +135,16 @@
         </div>
         </div>
     </div>
-
-    <div class="col-sm-8 col-lg-9 mtb_20 cart_main">
-        <?php require_once APP . '/views/cart/cart_tpl_2.php' ?>
+    
+    <div class="col-sm-8 col-lg-9 mtb_20 products-ajax">
+        <?php require_once APP . '/views/categories/categories_tpl.php' ?>
     </div>
 
     </div>
     <?php if (!empty($brands)): ?>
     <div id="brand_carouse" class="ptb_60 text-center">
         <div class="type-01">
-            <div class="heading-part mb_20">
+            <div class="heading-part mb_10">
             <h2 class="main_title">Brand Logo</h2>
             </div>
             <div class="row">

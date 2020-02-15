@@ -1250,6 +1250,16 @@ label.checkme {
 .header-search .search-box input {
     background-color: #fff;
 }
+.tt-menu {
+    width: 100%;
+    background-color: #000;
+    border: 1px solid #424242;
+    border-top: 0;
+    padding: 10px;
+}
+.tt-menu .tt-selectable {
+    cursor: pointer;
+}
 
 
 /* ----------------------------------------------
@@ -1611,7 +1621,7 @@ input#amount {
 #product-tab .owl-nav, .blog .owl-nav, .latest_pro .owl-nav {
     right: 10px;
 }
-#product-thumbnail .owl-nav .owl-prev, {
+#product-thumbnail .owl-nav .owl-prev {
     left: 0;
 }
 
@@ -1872,7 +1882,7 @@ blockquote {
 }
 .product-thumb .price {
     color: #fff;
-    display: inline-block;
+    /* display: inline-block; */
     font: 700 20px/20px "Roboto";
     margin-top: 5px;
     vertical-align: middle;
@@ -1955,6 +1965,7 @@ blockquote {
 }
 .sort-inner, .limit {
     float: left;
+    padding: 2px 5px;
 }
 .list-grid-wrapper,.page-wrapper ,.sort-wrapper{
     padding: 10px;
@@ -2760,3 +2771,20 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     }
 }
     /* =====  END RESPONSIVE CSS  =====*/
+
+.ui-slider-handle {
+    z-index: 9000;
+}
+.ui-slider-range.ui-corner-all.ui-widget-header {
+    background: #fa4251;
+}
+.ui-state-default, .ui-widget-content .ui-state-default:active {
+    background: #fa4251;
+}
+.ui-state-active, .ui-widget-content .ui-state-active {
+    background: #fa4251 !important;
+}
+input#amount {
+    font-size: 12px;
+    width: 100%;
+}
