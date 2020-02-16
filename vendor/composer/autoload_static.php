@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
 {
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Valitron\\' => 9,
+        ),
         'R' => 
         array (
             'RedBeanPHP\\' => 11,
@@ -22,6 +26,10 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
     );
 
     public static $prefixDirsPsr4 = array (
+        'Valitron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron',
+        ),
         'RedBeanPHP\\' => 
         array (
             0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
@@ -36,11 +44,96 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
         ),
     );
 
+    public static $classMap = array (
+        'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
+        'App\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/controllers/CartController.php',
+        'App\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/controllers/CategoriesController.php',
+        'App\\Controllers\\CurrencyController' => __DIR__ . '/../..' . '/app/controllers/CurrencyController.php',
+        'App\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/controllers/MainController.php',
+        'App\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/controllers/ProductsController.php',
+        'App\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/controllers/SearchController.php',
+        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/controllers/UserController.php',
+        'App\\Models\\BaseModel' => __DIR__ . '/../..' . '/app/models/BaseModel.php',
+        'App\\Models\\Breadcrumbs' => __DIR__ . '/../..' . '/app/models/Breadcrumbs.php',
+        'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/models/Cart.php',
+        'App\\Models\\Category' => __DIR__ . '/../..' . '/app/models/Category.php',
+        'App\\Models\\Product' => __DIR__ . '/../..' . '/app/models/Product.php',
+        'App\\Models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
+        'App\\Widgets\\Currency\\Currency' => __DIR__ . '/../..' . '/app/widgets/currency/Currency.php',
+        'App\\Widgets\\Menu\\MainMenu' => __DIR__ . '/../..' . '/app/widgets/menu/MainMenu.php',
+        'FW\\App' => __DIR__ . '/..' . '/framework/App.php',
+        'FW\\Base\\Controller' => __DIR__ . '/..' . '/framework/base/Controller.php',
+        'FW\\Base\\Model' => __DIR__ . '/..' . '/framework/base/Model.php',
+        'FW\\Base\\View' => __DIR__ . '/..' . '/framework/base/View.php',
+        'FW\\Database\\Db' => __DIR__ . '/..' . '/framework/database/Db.php',
+        'FW\\Exceptions\\ExceptionHandler' => __DIR__ . '/..' . '/framework/exceptions/ExceptionHandler.php',
+        'FW\\Pagination\\Paginator' => __DIR__ . '/..' . '/framework/pagination/Paginator.php',
+        'FW\\Registry' => __DIR__ . '/..' . '/framework/Registry.php',
+        'FW\\Routing\\Router' => __DIR__ . '/..' . '/framework/routing/Router.php',
+        'FW\\Traits\\SingletonTrait' => __DIR__ . '/..' . '/framework/traits/SingletonTrait.php',
+        'RedBeanPHP\\Adapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter.php',
+        'RedBeanPHP\\Adapter\\DBAdapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter/DBAdapter.php',
+        'RedBeanPHP\\AssociationManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/AssociationManager.php',
+        'RedBeanPHP\\BeanCollection' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanCollection.php',
+        'RedBeanPHP\\BeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanHelper.php',
+        'RedBeanPHP\\BeanHelper\\SimpleFacadeBeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/BeanHelper/SimpleFacadeBeanHelper.php',
+        'RedBeanPHP\\Cursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor.php',
+        'RedBeanPHP\\Cursor\\NullCursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor/NullCursor.php',
+        'RedBeanPHP\\Cursor\\PDOCursor' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Cursor/PDOCursor.php',
+        'RedBeanPHP\\Driver' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Driver.php',
+        'RedBeanPHP\\Driver\\RPDO' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Driver/RPDO.php',
+        'RedBeanPHP\\DuplicationManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/DuplicationManager.php',
+        'RedBeanPHP\\Facade' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Facade.php',
+        'RedBeanPHP\\Finder' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Finder.php',
+        'RedBeanPHP\\Jsonable' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/OODBBean.php',
+        'RedBeanPHP\\LabelMaker' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/LabelMaker.php',
+        'RedBeanPHP\\Logger' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger.php',
+        'RedBeanPHP\\Logger\\RDefault' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger/RDefault.php',
+        'RedBeanPHP\\Logger\\RDefault\\Debug' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Logger/RDefault/Debug.php',
+        'RedBeanPHP\\OODB' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/OODB.php',
+        'RedBeanPHP\\OODBBean' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/OODBBean.php',
+        'RedBeanPHP\\Observable' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Observable.php',
+        'RedBeanPHP\\Observer' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Observer.php',
+        'RedBeanPHP\\Plugin' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Plugin.php',
+        'RedBeanPHP\\Plugin\\NonStaticBeanHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Plugin/Pool.php',
+        'RedBeanPHP\\Plugin\\PoolDB' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Plugin/Pool.php',
+        'RedBeanPHP\\QueryWriter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter.php',
+        'RedBeanPHP\\QueryWriter\\AQueryWriter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/AQueryWriter.php',
+        'RedBeanPHP\\QueryWriter\\CUBRID' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/CUBRID.php',
+        'RedBeanPHP\\QueryWriter\\Firebird' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/Firebird.php',
+        'RedBeanPHP\\QueryWriter\\MySQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/MySQL.php',
+        'RedBeanPHP\\QueryWriter\\PostgreSQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/PostgreSQL.php',
+        'RedBeanPHP\\QueryWriter\\SQLiteT' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/QueryWriter/SQLiteT.php',
+        'RedBeanPHP\\R' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/R.php',
+        'RedBeanPHP\\RedException' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/RedException.php',
+        'RedBeanPHP\\RedException\\SQL' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/RedException/SQL.php',
+        'RedBeanPHP\\Repository' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository.php',
+        'RedBeanPHP\\Repository\\Fluid' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository/Fluid.php',
+        'RedBeanPHP\\Repository\\Frozen' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Repository/Frozen.php',
+        'RedBeanPHP\\SimpleModel' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/SimpleModel.php',
+        'RedBeanPHP\\SimpleModelHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/SimpleModelHelper.php',
+        'RedBeanPHP\\TagManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/TagManager.php',
+        'RedBeanPHP\\ToolBox' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/ToolBox.php',
+        'RedBeanPHP\\Util\\ArrayTool' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/ArrayTool.php',
+        'RedBeanPHP\\Util\\Diff' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Diff.php',
+        'RedBeanPHP\\Util\\DispenseHelper' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/DispenseHelper.php',
+        'RedBeanPHP\\Util\\Dump' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Dump.php',
+        'RedBeanPHP\\Util\\Feature' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Feature.php',
+        'RedBeanPHP\\Util\\Look' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Look.php',
+        'RedBeanPHP\\Util\\MatchUp' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/MatchUp.php',
+        'RedBeanPHP\\Util\\MultiLoader' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/MultiLoader.php',
+        'RedBeanPHP\\Util\\QuickExport' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/QuickExport.php',
+        'RedBeanPHP\\Util\\Transaction' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Transaction.php',
+        'RedBeanPHP\\Util\\Tree' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Util/Tree.php',
+        'Valitron\\Validator' => __DIR__ . '/..' . '/vlucas/valitron/src/Valitron/Validator.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe::$classMap;
 
         }, null, ClassLoader::class);
     }

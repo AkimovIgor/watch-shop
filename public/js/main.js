@@ -241,6 +241,42 @@ $('body').on('click', '.page-link', function(e) {
 })
 
 
+// Authorisation
+$('body').on('submit', '#register-form', function(e) {
+  e.preventDefault();
+  var data = $(this).serialize();
+  $.ajax({
+    url: 'user/signup',
+    method: 'POST',
+    data: data,
+    success: function(res) {
+      if (res == 2) {
+        window.location = path;
+      } else {
+        $('.auth-ajax').html(res);
+      }
+    }
+  });
+});
+
+$('body').on('submit', '#login-form', function(e) {
+  e.preventDefault();
+  var data = $(this).serialize();
+  $.ajax({
+    url: 'user/signin',
+    method: 'POST',
+    data: data,
+    success: function(res) {
+      if (res == 2) {
+        window.location = path;
+      } else {
+        $('.auth-ajax').html(res);
+      }
+    }
+  });
+});
+
+
 
 
 

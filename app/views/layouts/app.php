@@ -4,6 +4,8 @@ use App\Widgets\Currency\Currency;
 use App\Widgets\Menu\MainMenu;
 use FW\App;
 
+$user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? $_SESSION['user'] : null;
+
 ?>
 <!DOCTYPE html>
 <!--[if (gte IE 9)|!(IE)]><!-->
@@ -14,11 +16,10 @@ use FW\App;
   <base href="/">
   <!-- =====  BASIC PAGE NEEDS  ===== -->
   <meta charset="utf-8">
-  <title>Dark look E-commerce Bootstrap Template</title>
+  
   <!-- =====  SEO MATE  ===== -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <?= $meta ?>
   <meta name="distribution" content="global">
   <meta name="revisit-after" content="2 Days">
   <meta name="robots" content="ALL">
@@ -29,9 +30,23 @@ use FW\App;
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="viewport" content="width=device-width">
   <!-- =====  CSS  ===== -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" /> -->
+  
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/> -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <!-- <link rel="stylesheet" type="text/css" href="fontawesome/font-awesome.min.css" /> -->
+  <style>
+    @font-face{
+      font-family: 'FontAwesome';
+      src: url('fonts/fontawesome-webfont.eot');
+      src: url('fonts/fontawesome-webfont.eot?iefix') format('eot'),
+      url('fonts/fontawesome-webfont.woff') format('woff'),
+      url('fonts/fontawesome-webfont.ttf') format('truetype'),
+      url('fonts/fontawesome-webfont.svg#webfont') format('svg');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
@@ -68,6 +83,16 @@ use FW\App;
     </div>
     <!-- =====  HEADER START  ===== -->
     <header id="header">
+
+    <?php if (isset($_SESSION['success'])): ?>
+    <div class="alert alert-success alert-dismissible" role="alert" style="margin-bottom: 0">
+      <?= $_SESSION['success'] ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <?php endif; unset($_SESSION['success']); ?>
+
       <div class="header-top">
         <div class="container">
           <div class="row">
@@ -78,7 +103,18 @@ use FW\App;
             </div>
             <div class="col-xs-12 col-sm-8">
               <ul class="header-top-right text-right">
-                <li class="account"><a href="login.html">My Account</a></li>
+
+                <?php if ($user): ?>
+                <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Welcome, <?= $user['login'] ?> <span class="caret"></span> </span>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="user/profile">Profile</a></li>
+                    <li><a href="user/logout">Logout</a></li>
+                  </ul>
+                </li>
+                <?php else: ?>
+                <li class="account"><a href="user/login">My Account</a></li>
+                <?php endif; ?>
+
                 <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Language <span class="caret"></span> </span>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">English</a></li>
@@ -294,8 +330,9 @@ use FW\App;
     </button>
   </div>
 
-  <span id="scrollup"></span>
-  <script src="https://use.fontawesome.com/72227fcc65.js"></script>
+  <span id="scrollup" style="cursor: pointer;"></span>
+
+  <!-- <script src="https://use.fontawesome.com/72227fcc65.js"></script> -->
   <script src="js/jQuery_v3.1.1.min.js"></script>
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
