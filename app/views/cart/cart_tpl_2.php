@@ -54,7 +54,7 @@
 <a href="shop">
 <input class="btn pull-left mt_30" type="submit" value="Continue Shopping" />
 </a>
-<a href="checkout">
+<a href="cart/checkout">
 <input class="btn pull-right mt_30" type="submit" value="Checkout" />
 </a>
 <?php else: ?>

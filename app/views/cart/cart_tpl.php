@@ -5,7 +5,7 @@
             <tbody>
             <?php foreach($_SESSION['cart'] as $id => $item): ?>
             <tr>
-                <td class="text-center"><a href="products/<?= $item['slug'] ?>"><img style="height: 84px; width: 70px;" src="images/product/<?= $item['image'] ?>" alt="<?= $item['title'] ?>" title="<?= $item['title'] ?>"></a></td>
+                <td class="text-center"><a href="products/<?= $item['slug'] ?>"><img style="width: 70px;" src="images/product/<?= $item['image'] ?>" alt="<?= $item['title'] ?>" title="<?= $item['title'] ?>"></a></td>
                 <td class="text-left product-name"><a href="products/<?= $item['slug'] ?>"><?= $item['title'] ?></a> <span class="text-left price"><span class="currencySymbol"><?= $currency['symbol_left'] ?></span><span><?= number_format($item['price'] * $currency['value'], 2, '.', '')  ?></span><span class="currencySymbol"><?= $currency['symbol_right'] ?></span>
                 <input class="cart-qty" data-id="<?= $id ?>" name="product_quantity" min="1" value="<?= $item['qty'] ?>" type="number"></span>
                 <span><?= $item['mod'] ?></span><span style="display: none" id="total-qty"><?= $_SESSION['cart_total']['total_qty'] ?></span>
@@ -30,7 +30,7 @@
     <a href="cart">
         <input class="btn pull-left mt_10" value="View cart" type="submit">
     </a>
-    <a href="checkout">
+    <a href="cart/checkout">
         <input class="btn pull-right mt_10" value="Checkout" type="submit">
     </a>
     </li>

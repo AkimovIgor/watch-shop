@@ -178,6 +178,9 @@ a {
     -webkit-transition: all 0.25s ease 0s;
     -o-transition: all 0.25s ease 0s;
 }
+.product-name a:hover {
+    color: rgb(221, 221, 221);
+}
 a:hover, a:focus {
     color: #000;
     text-decoration: none;
@@ -599,6 +602,10 @@ i.right {
 }
 .panel-default {
     border-color: #e5e5e5;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
 }
 
 /* ----------------------------------------------
@@ -2506,11 +2513,15 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 /*-----------------------------------*/
 
 @media (max-width: 767px) {
+    .main-search .input-group-btn {
+        left: 187px;
+    }
     .table-responsive {
         overflow-y: auto;
     }
     .dropdown-menu {
-        min-width: 150px;
+        min-width: 112px;
+        width: 100%;
     }
     .header-top-left, .header-top-right {
         text-align: center;
@@ -2537,6 +2548,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     .navbar-collapse {
     width: 100%;
     position: absolute;
+    left: 0;
     z-index: 1;
     background: rgba(0, 0, 0, 0.92);
     top: 50px;
@@ -2565,6 +2577,7 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     }
     .navbar-nav {
         float: none!important;
+        margin: 0;
         margin-top: 7.5px;
     }
     .navbar-nav>li {
@@ -2905,3 +2918,4 @@ input#amount {
 .was-validated .custom-file-input:invalid:focus~.custom-file-label{
     box-shadow:0 0 0 .2rem rgba(227,52,47,.25)
 }
+

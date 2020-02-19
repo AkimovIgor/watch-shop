@@ -159,7 +159,7 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
                       <tbody>
                         <?php foreach($_SESSION['cart'] as $id => $item): ?>
                         <tr>
-                          <td class="text-center"><a href="products/<?= $item['slug'] ?>"><img style="height: 84px; width: 70px;" src="images/product/<?= $item['image'] ?>" alt="<?= $item['title'] ?>" title="<?= $item['title'] ?>"></a></td>
+                          <td class="text-center"><a href="products/<?= $item['slug'] ?>"><img style="width: 70px;" src="images/product/<?= $item['image'] ?>" alt="<?= $item['title'] ?>" title="<?= $item['title'] ?>"></a></td>
                           <td class="text-left product-name"><a href="products/<?= $item['slug'] ?>"><?= $item['title'] ?></a> <span class="text-left price"><span class="currencySymbol"><?= $currency['symbol_left'] ?></span><span><?= number_format($item['price'] * $currency['value'], 2, '.', '')  ?></span><span class="currencySymbol"><?= $currency['symbol_right'] ?></span>
                             <input class="cart-qty" data-id="<?= $id ?>" name="product_quantity" min="1" value="<?= $item['qty'] ?>" type="number"></span>
                             <span><?= $item['mod'] ?></span>
@@ -184,7 +184,7 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
                     <a href="cart">
                       <input class="btn pull-left mt_10" value="View cart" type="submit">
                     </a>
-                    <a href="checkout">
+                    <a href="cart/checkout">
                       <input class="btn pull-right mt_10" value="Checkout" type="submit">
                     </a>
                   </li>
@@ -291,7 +291,7 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
       <div class="footer-bottom mt_60 ptb_20">
         <div class="container">
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <div class="social_icon">
                 <ul>
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -302,10 +302,10 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
                 </ul>
               </div>
             </div>
-            <div class="col-sm-4">
-              <div class="copyright-part text-center">@ 2019 All Rights Reserved Darklook</div>
+            <div class="col-sm-6">
+              <div class="copyright-part text-center">© 2020 All Rights Reserved Darklook | Developer - <a href="https://vk.com/id363242275">Akimov I.S.</a></div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <div class="payment-icon text-right">
                 <ul>
                   <li><i class="fa fa-cc-paypal "></i></li>
