@@ -1,8 +1,8 @@
 <!-- =====  BANNER STRAT  ===== -->
 <div class="banner">
     <div class="main-banner owl-carousel">
-    <div class="item"><a href="#"><img src="images/main_banner1.jpg" alt="Main Banner" class="img-responsive" /></a></div>
-    <div class="item"><a href="#"><img src="images/main_banner2.jpg" alt="Main Banner" class="img-responsive" /></a></div>
+    <div class="item"><a href="shop"><img src="images/main_banner1.jpg" alt="Main Banner" class="img-responsive" /></a></div>
+    <div class="item"><a href="shop"><img src="images/main_banner2.jpg" alt="Main Banner" class="img-responsive" /></a></div>
     </div>
 </div>
 <!-- =====  BANNER END  ===== -->
@@ -187,7 +187,7 @@
     <div class="cms_banner">
         <div class="col-xs-12 mt_60">
         <div id="subbanner4" class="sub-hover">
-            <div class="sub-img"><a href="#"><img src="https://storge.pic2.me/upload/445/57752eda1055a.jpg" alt="Sub Banner5" class="img-responsive"></a></div>
+            <div class="sub-img"><a><img src="images/sub5.jpg" alt="Sub Banner5" class="img-responsive"></a></div>
         </div>
         </div>
     </div>

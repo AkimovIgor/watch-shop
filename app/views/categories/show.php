@@ -1,3 +1,7 @@
+<script>
+    var min = <?= $min; ?>;
+    var max = <?= $max; ?>;
+</script>
 <div class="container">
     <div class="row ">
     <!-- =====  BANNER STRAT  ===== -->
@@ -37,9 +41,7 @@
             <input type="text" id="amount" readonly>
             </p>
             <div id="slider-range" class="mtb_20 ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
-                <!-- <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 14.8%; width: 71.4%;"></div> -->
-                <!-- <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 14.8%;"></span> -->
-                <!-- <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 86.2%;"></span> -->
+                
             </div>
             <div class="list-group">
             <div class="list-group-item mb_10">
@@ -47,20 +49,20 @@
                 <div id="filter-group1">
                 <div class="checkbox">
                     <label>
-                    <input value="White" type="checkbox"> White </label>
+                    <input value="White" type="checkbox" <?php if (in_array('White', $filter)): ?>checked <?php endif; ?>> White </label>
                 </div>
                 <div class="checkbox">
                     <label>
-                    <input value="Black" type="checkbox"> Black </label>
+                    <input value="Black" type="checkbox" <?php if (in_array('Black', $filter)): ?>checked <?php endif; ?>> Black </label>
                 </div>
                 <div class="checkbox ">
                     <label>
-                    <input value="Gold" type="checkbox"> Gold
+                    <input value="Gold" type="checkbox" <?php if (in_array('Gold', $filter)): ?>checked <?php endif; ?>> Gold
                     </label>
                 </div>
                 <div class="checkbox ">
                     <label>
-                    <input value="Onyx" type="checkbox"> Onyx
+                    <input value="Onyx" type="checkbox" <?php if (in_array('Onyx', $filter)): ?>checked <?php endif; ?>> Onyx
                     </label>
                 </div>
                 </div>

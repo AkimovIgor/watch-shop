@@ -13,9 +13,9 @@ class BaseModel extends Model
         return $categories;
     }
 
-    public function getAllForPaginate($table, $where = '', $orderBy = 'ASC', $key = 'id', $perPage, $offset)
+    public function getAllForPaginate($table, $where = '', $orderBy = 'ASC', $key = 'id', $perPage, $offset, $bind = [])
     {
-        $items = R::find($table, $where . " ORDER BY {$key} " . $orderBy . " LIMIT $offset, $perPage");
+        $items = R::find($table, $where . " ORDER BY {$key} " . $orderBy . " LIMIT $offset,$perPage", $bind);
         return $items;
     }
 }

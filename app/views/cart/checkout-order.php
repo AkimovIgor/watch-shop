@@ -24,7 +24,7 @@
     <tfoot>
     <tr>
         <td class="text-right" colspan="4"><strong>Sub-Total:</strong></td>
-        <td class="text-right"><?= $currency['symbol_left'] ?></span><?= number_format($_SESSION['cart_total']['total_price'] * $currency['value'] * $product['qty'], 2, '.', '')  ?><span class="currencySymbol"><?= $currency['symbol_right'] ?></td>
+        <td class="text-right"><?= $currency['symbol_left'] ?></span><?= number_format($_SESSION['cart_total']['total_price'] * $currency['value'], 2, '.', '')  ?><span class="currencySymbol"><?= $currency['symbol_right'] ?></td>
     </tr>
     <tr>
         <td class="text-right" colspan="4"><strong>Flat Shipping Rate:</strong></td>
@@ -32,7 +32,7 @@
     </tr>
     <tr>
         <td class="text-right" colspan="4"><strong>Total:</strong></td>
-        <td class="text-right"><?= $currency['symbol_left'] ?></span><?= number_format($_SESSION['cart_total']['total_price'] * $currency['value'] * $product['qty'] + $flat, 2, '.', '')  ?><span class="currencySymbol"><?= $currency['symbol_right'] ?></td>
+        <td class="text-right"><?= $currency['symbol_left'] ?></span><?= number_format($_SESSION['cart_total']['total_price'] * $currency['value'] + $flat, 2, '.', '')  ?><span class="currencySymbol"><?= $currency['symbol_right'] ?></td>
     </tr>
     </tfoot>
 </table>

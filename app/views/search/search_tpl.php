@@ -22,8 +22,8 @@
 <div class="sort-wrapper pull-right">
     <label class="control-label" for="input-sort">Sort By :</label>
     <div class="sort-inner">
-    <select id="input-sort" name="sort" class="form-control">
-        <option value="title|DESC" <?php if ($order == "title|DESC"): ?>selected="selected"<?php endif; ?>>Name (Z - A)</option>
+    <select id="input-sort" class="form-control">
+    <option value="title|DESC" <?php if ($order == "title|DESC"): ?>selected="selected"<?php endif; ?>>Name (Z - A)</option>
         <option value="title|ASC" <?php if ($order == "title|ASC"): ?>selected="selected"<?php endif; ?>>Name (A - Z)</option>
         <option value="price|ASC" <?php if ($order == "price|ASC"): ?>selected="selected"<?php endif; ?>>Price (Low &gt; High)</option>
         <option value="price|DESC" <?php if ($order == "price|DESC"): ?>selected="selected"<?php endif; ?>>Price (High &gt; Low)</option>
@@ -78,7 +78,7 @@
     <div class="pagination-nav text-center mt_50">
     <?= $pagination ?>
     </div>
-<?php endif; ?>    
+<?php endif; ?>
 <?php else: ?>
-    <h1>Товаров данной категории пока нет.</h1>
+    <h1>No results were found for your search request.</h1>
 <?php endif; ?>

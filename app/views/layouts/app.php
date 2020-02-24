@@ -5,6 +5,8 @@ use App\Widgets\Menu\MainMenu;
 use FW\App;
 
 $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? $_SESSION['user'] : null;
+// dd(App::$app->getProperty('currency'), 0);
+// dd(App::$app->getProperty('currencies'));
 
 ?>
 <!DOCTYPE html>
@@ -115,13 +117,13 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
                 <li class="account"><a href="user/login">My Account</a></li>
                 <?php endif; ?>
 
-                <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Language <span class="caret"></span> </span>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">English</a></li>
-                    <li><a href="#">French</a></li>
-                    <li><a href="#">German</a></li>
-                  </ul>
-                </li>
+<!--                <li class="language dropdown"> <span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Language <span class="caret"></span> </span>-->
+<!--                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">-->
+<!--                    <li><a href="#">English</a></li>-->
+<!--                    <li><a href="#">French</a></li>-->
+<!--                    <li><a href="#">German</a></li>-->
+<!--                  </ul>-->
+<!--                </li>-->
                 <li class="currency dropdown"> <span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button"><?= isset($_COOKIE['currency']) ? $_COOKIE['currency'] : 'Currency'; ?> <span class="caret"></span> </span>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
                     <!-- CURRENCY START -->

@@ -54,15 +54,16 @@ function search(){
 /* ===== Grid list active  =====   */
 function gl_active(){
     $('body').on('click', '.btn-list-grid button', function() {
-        if($(this).hasClass('grid-view')) {
-          $(this).addClass('active');
-          $('.btn-list-grid button.list-view').removeClass('active');
-        }
-        else if($(this).hasClass('list-view')) {
-        	$(this).addClass('active');
-        	$('.btn-list-grid button.grid-view').removeClass('active');
-        }
-    });
+    if($(this).hasClass('grid-view')) {
+
+    $(this).addClass('active');
+    $('.btn-list-grid button.list-view').removeClass('active');
+    }
+    else if($(this).hasClass('list-view')) {
+    $(this).addClass('active');
+    $('.btn-list-grid button.grid-view').removeClass('active');
+    }
+});
 }
 /* ===== Grid list View  =====   */
 function gl_view() {
