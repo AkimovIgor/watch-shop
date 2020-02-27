@@ -54,16 +54,31 @@ class Paginator
         return $page; 
     }
 
+    /**
+     * Получить смещение
+     *
+     * @return float|int
+     */
     public function getOffset()
     {
         return $this->currentPage * $this->perPage - $this->perPage;
     }
 
+    /**
+     * Получить начальную позицию для равномерного распределения ссылок
+     *
+     * @return int
+     */
     public function getStart()
     {
         return (($this->currentPage - $this->countLinks) > 0) ? $this->currentPage - $this->countLinks : 1;
     }
 
+    /**
+     * Получить конечную позицию для равномерного распределения ссылок
+     *
+     * @return int
+     */
     public function getEnd()
     {
         return (($this->currentPage + $this->countLinks) < $this->countPages) ? $this->currentPage + $this->countLinks : $this->countPages;

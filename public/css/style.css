@@ -2678,6 +2678,12 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     .copyright-part{
         margin: 10px 0;
     }
+    .product-name {
+        margin: 20px 0 10px;
+    }
+    .fa.fa-times-circle {
+        font-size: 30px;
+    }
 }
 
 /*-----------------------------------*/

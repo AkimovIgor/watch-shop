@@ -3,7 +3,7 @@
     <!-- =====  BANNER STRAT  ===== -->
     <div class="col-sm-12">
         <div class="breadcrumb ptb_20">
-        <h1>New LCDScreen...</h1>
+        <h1><?= $product->title ?></h1>
         <ul>
             <?= $breadcrumbs; ?>
         </ul>
@@ -115,7 +115,7 @@
             <ul class="list-unstyled product_info mtb_20">
             <li>
                 <label>Brand:</label>
-                <span> <a href="<?= $brand->slug ?>"><?= $brand->title ?></a></span>
+                <span> <a href="brands/<?= $brand->slug ?>"><?= $brand->title ?></a></span>
             </li>
             <li>
                 <label>Product Code:</label>
@@ -160,7 +160,7 @@
             </div>
             <div class="qty mt_30 form-group2">
                 <label>Qty</label>
-                <input name="product_quantity" min="<?= $product->quantity > 0 ? 1 : 0 ?>" value="<?= $product->quantity > 0 ? 1 : 0 ?>" type="number" max="<?= $product->quantity ?>">
+                <input name="product_quantity" onkeypress="return false" min="<?= $product->quantity > 0 ? 1 : 0 ?>" value="<?= $product->quantity > 0 ? 1 : 0 ?>" type="number" max="<?= $product->quantity ?>">
             </div>
             <div class="button-group mt_30">
                 <div class="add-to-cart" data-id="<?= $product->id ?>"><a href="cart/add?id=<?= $product->id ?>"><span>Add to cart</span></a></div>
@@ -175,52 +175,52 @@
             <div id="exTab5" class="mtb_30">
             <ul class="nav nav-tabs">
                 <li class="active"> <a href="#1c" data-toggle="tab">Overview</a> </li>
-                <li><a href="#2c" data-toggle="tab">Reviews (1)</a> </li>
-                <li><a href="#3c" data-toggle="tab">Solution</a> </li>
+<!--                <li><a href="#2c" data-toggle="tab">Reviews (1)</a> </li>-->
+<!--                <li><a href="#3c" data-toggle="tab">Solution</a> </li>-->
             </ul>
             <div class="tab-content ">
                 <div class="tab-pane active pt_20" id="1c">
                 <p>CLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis malesuada mi id tristique. Sed ipsum nisi, dapibus at faucibus non, dictum a diam. Nunc vitae interdum diam. Sed finibus, justo vel maximus facilisis, sapien turpis euismod tellus, vulputate semper diam ipsum vel tellus.</p>
                 </div>
-                <div class="tab-pane" id="2c">
-                <form class="form-horizontal">
-                    <div id="review"></div>
-                    <h4 class="mt_20 mb_30">Write a review</h4>
-                    <div class="form-group required">
-                    <div class="col-sm-12">
-                        <label class="control-label" for="input-name">Your Name</label>
-                        <input name="name" value="" id="input-name" class="form-control" type="text">
-                    </div>
-                    </div>
-                    <div class="form-group required">
-                    <div class="col-sm-12">
-                        <label class="control-label" for="input-review">Your Review</label>
-                        <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
-                        <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>
-                    </div>
-                    </div>
-                    <div class="form-group required">
-                    <div class="col-md-6">
-                        <label class="control-label">Rating</label>
-                        <div class="rates"><span>Bad</span>
-                        <input name="rating" value="1" type="radio">
-                        <input name="rating" value="2" type="radio">
-                        <input name="rating" value="3" type="radio">
-                        <input name="rating" value="4" type="radio">
-                        <input name="rating" value="5" type="radio">
-                        <span>Good</span></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="buttons pull-right">
-                        <button type="submit" class="btn btn-md btn-link">Continue</button>
-                        </div>
-                    </div>
-                    </div>
-                </form>
-                </div>
-                <div class="tab-pane pt_20" id="3c">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis malesuada mi id tristique. Sed ipsum nisi, dapibus at faucibus non, dictum a diam. Nunc vitae interdum diam. Sed finibus, justo vel maximus facilisis, sapien turpis euismod tellus, vulputate semper diam ipsum vel tellus.applied clearfix to the tab-content to rid of the gap between the tab and the content</p>
-                </div>
+<!--                <div class="tab-pane" id="2c">-->
+<!--                <form class="form-horizontal">-->
+<!--                    <div id="review"></div>-->
+<!--                    <h4 class="mt_20 mb_30">Write a review</h4>-->
+<!--                    <div class="form-group required">-->
+<!--                    <div class="col-sm-12">-->
+<!--                        <label class="control-label" for="input-name">Your Name</label>-->
+<!--                        <input name="name" value="" id="input-name" class="form-control" type="text">-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group required">-->
+<!--                    <div class="col-sm-12">-->
+<!--                        <label class="control-label" for="input-review">Your Review</label>-->
+<!--                        <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>-->
+<!--                        <div class="help-block"><span class="text-danger">Note:</span> HTML is not translated!</div>-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-group required">-->
+<!--                    <div class="col-md-6">-->
+<!--                        <label class="control-label">Rating</label>-->
+<!--                        <div class="rates"><span>Bad</span>-->
+<!--                        <input name="rating" value="1" type="radio">-->
+<!--                        <input name="rating" value="2" type="radio">-->
+<!--                        <input name="rating" value="3" type="radio">-->
+<!--                        <input name="rating" value="4" type="radio">-->
+<!--                        <input name="rating" value="5" type="radio">-->
+<!--                        <span>Good</span></div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <div class="buttons pull-right">-->
+<!--                        <button type="submit" class="btn btn-md btn-link">Continue</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                </form>-->
+<!--                </div>-->
+<!--                <div class="tab-pane pt_20" id="3c">-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis malesuada mi id tristique. Sed ipsum nisi, dapibus at faucibus non, dictum a diam. Nunc vitae interdum diam. Sed finibus, justo vel maximus facilisis, sapien turpis euismod tellus, vulputate semper diam ipsum vel tellus.applied clearfix to the tab-content to rid of the gap between the tab and the content</p>-->
+<!--                </div>-->
             </div>
             </div>
         </div>
@@ -323,26 +323,26 @@
         <?php endif; ?>
     </div>
     </div>
-    <div id="brand_carouse" class="ptb_30 text-center">
-    <div class="type-01">
-        <div class="heading-part mb_10 ">
-        <h2 class="main_title">Brand Logo</h2>
-        </div>
-        <div class="row">
-        <div class="col-sm-12">
-            <div class="brand owl-carousel ptb_20">
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand1.png" alt="Disney" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand2.png" alt="Dell" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand3.png" alt="Harley" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand4.png" alt="Canon" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand5.png" alt="Canon" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand6.png" alt="Canon" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand7.png" alt="Canon" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand8.png" alt="Canon" class="img-responsive" /></a> </div>
-            <div class="item text-center"> <a href="#"><img src="images/brand/brand9.png" alt="Canon" class="img-responsive" /></a> </div>
+    <?php if (!empty($brands)): ?>
+        <div id="brand_carouse" class="ptb_60 text-center">
+            <div class="type-01">
+                <div class="heading-part mb_10">
+                    <h2 class="main_title">Brand Logo</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="brand owl-carousel ptb_20 owl-loaded owl-drag">
+                            <?php foreach ($brands as $brand): ?>
+                                <div class="item text-center">
+                                    <a href="brands/<?= $brand->slug ?>">
+                                        <img src="images/brand/<?= $brand->image ?>" alt="<?= $brand->title ?>" class="img-responsive" />
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-    </div>
-    </div>
+    <?php endif; ?>
 </div>

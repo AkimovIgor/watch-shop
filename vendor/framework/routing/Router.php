@@ -54,6 +54,7 @@ class Router
      * @param  string $url
      *
      * @return void
+     * @throws \Exception
      */
     public static function dispatch($url)
     {
@@ -129,11 +130,25 @@ class Router
         return $url;
     }
 
+    /**
+     * Преобразовать строку в CamelCase формат
+     *
+     * @param $str
+     *
+     * @return string
+     */
     public static function upper($str)
     {
         return str_replace(' ', '', ucwords(str_replace('-', ' ', $str)));
     }
 
+    /**
+     * Преобразовать строку в lowerCase формат
+     *
+     * @param $str
+     *
+     * @return string
+     */
     public static function lower($str)
     {
         return lcfirst(self::upper($str));

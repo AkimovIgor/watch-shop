@@ -28,7 +28,7 @@
         </div>
         <div class="left_banner left-sidebar-widget mb_50 mt_30"> <a href="#"><img src="images/left1.jpg" alt="Left Banner" class="img-responsive" /></a> </div>
         <div class="left-special left-sidebar-widget mb_50">
-        <div class="heading-part mb_20 ">
+        <div class="heading-part mb_10 ">
             <h2 class="main_title">Top Products</h2>
         </div>
         <div id="left-special" class="owl-carousel">
@@ -84,7 +84,7 @@
     <?php if (!empty($brands)): ?>
     <div id="brand_carouse" class="ptb_60 text-center">
         <div class="type-01">
-            <div class="heading-part mb_20">
+            <div class="heading-part mb_10">
             <h2 class="main_title">Brand Logo</h2>
             </div>
             <div class="row">

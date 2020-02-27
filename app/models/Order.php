@@ -7,6 +7,9 @@ use RedBeanPHP\R;
 
 class Order extends BaseModel
 {
+    /**
+     * @var array Массив заполняемых атрибутов эквивалентных полям в бд
+     */
     public $attributes = [
         'user_id' => '',
         'currency' => '',
@@ -15,7 +18,10 @@ class Order extends BaseModel
         'note' => '',
     ];
 
-    public $rules = [
+    /**
+     * @var array Массив валидационных правил
+     */
+    public $rules = [-
         'required' => [
             ['shipping_method'],
             ['payment_method'],
@@ -25,6 +31,14 @@ class Order extends BaseModel
         ]
     ];
 
+    /**
+     * Сохранить заказ
+     *
+     * @param array $data Данные заказа
+     * @param array $user Данные текущего пользователя
+     * @return int
+     * @throws \RedBeanPHP\RedException\SQL
+     */
     public function saveOrder($data, $user)
     {
         $order = R::dispense('orders');
@@ -38,6 +52,11 @@ class Order extends BaseModel
         return $orderId;
     }
 
+    /**
+     * Сохранить продукты заказа
+     *
+     * @param int $orderId Идентификатор заказа
+     */
     public function saveOrderProducts($orderId)
     {
         $values = '';
@@ -55,36 +74,42 @@ class Order extends BaseModel
         R::exec($sql);
     }
 
+    /**
+     * Отправка данных о совершенном заказе пользователю и менеджеру
+     *
+     * @param int $orderId Идентификатор заказза
+     * @param string $email Электронная почта пользователя совершившего заказ
+     */
     public function mailOrder($orderId, $email)
     {
-
         $transport = (new \Swift_SmtpTransport(App::$app->getProperty('smtp_host'),
             App::$app->getProperty('smtp_port'), App::$app->getProperty('smtp_protocol')))
         ->setUsername(App::$app->getProperty('smtp_login'))
         ->setPassword(App::$app->getProperty('smtp_password'));
 
-        // Create the Mailer using your created Transport
         $mailer = new \Swift_Mailer($transport);
 
         ob_start();
         require APP . '/views/cart/mail_tpl.php';
         $body = ob_get_clean();
 
-        // Create a message
+        // сформировать сообщение для пользователя
         $message_client = (new \Swift_Message('Заказ № ' . $orderId))
         ->setFrom([App::$app->getProperty('smtp_login') => App::$app->getProperty('site_name')])
         ->setTo($email)
         ->setBody($body, 'text/html');
 
+        // сформировать сообщение для менеджера
         $message_admin = (new \Swift_Message('Заказ № ' . $orderId))
         ->setFrom([App::$app->getProperty('smtp_login') => App::$app->getProperty('site_name')])
         ->setTo(App::$app->getProperty('admin_email'))
         ->setBody($body, 'text/html');
 
-        // Send the message
+        // отправить сообщения
         $result = $mailer->send($message_client);
         $result = $mailer->send($message_admin);
 
+        // очистить корзину
         unset($_SESSION['cart']);
         unset($_SESSION['cart_total']);
 

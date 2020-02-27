@@ -5,7 +5,6 @@ use FW\Routing\Router;
 
 Router::add('products/(?P<slug>[a-z0-9-]+)/?', ['controller' => 'products', 'action' => 'show']);
 Router::add('categories/(?P<slug>[a-z0-9-]+)/?', ['controller' => 'categories', 'action' => 'show']);
-// Router::add('categories/modificate', ['controller' => 'categories', 'action' => 'modificate']);
 
 Router::add('/', ['controller' => 'main']);
 Router::add('categories', ['controller' => 'Categories']);

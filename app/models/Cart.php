@@ -4,8 +4,20 @@ namespace App\Models;
 
 use FW\App;
 
+/**
+ * Модель корзины
+ *
+ * @package App\Models
+ */
 class Cart extends BaseModel
 {
+    /**
+     * Добавить продукт в корзину
+     *
+     * @param object $product Объект добавляемого продукта
+     * @param int $qty Количество добавляемого продукта
+     * @param array|null $mod Модификация добавляемого продукта
+     */
     public function addToCart($product, $qty = 1, $mod = null)
     {
         if (! isset($_SESSION['cart_currency'])) {
@@ -29,17 +41,22 @@ class Cart extends BaseModel
                 'qty' => $qty,
                 'title' => $title,
                 'mod' => isset($modTitle) ? $modTitle : '',
-                'price' => $price * $_SESSION['cart_currency']['value'],
+                'price' => $price,
                 'slug' => $product->slug,
                 'image' => $product->image
             ];
         }
         
         $_SESSION['cart_total']['total_qty'] = isset($_SESSION['cart_total']['total_qty']) ? $_SESSION['cart_total']['total_qty'] + $qty : $qty;
-        $_SESSION['cart_total']['total_price'] = isset($_SESSION['cart_total']['total_price']) ? $_SESSION['cart_total']['total_price'] + $qty * ($price * $_SESSION['cart_currency']['value']) : $qty * ($price * $_SESSION['cart_currency']['value']);
+        $_SESSION['cart_total']['total_price'] = isset($_SESSION['cart_total']['total_price']) ? $_SESSION['cart_total']['total_price'] + $qty * ($price) : $qty * ($price);
         
     }
 
+    /**
+     * Удалить продукт из корзины
+     *
+     * @param int $id Идентификатор удаляемого продукта
+     */
     public function deleteItem($id)
     {
         if (isset($_SESSION['cart'][$id])) {
@@ -49,6 +66,12 @@ class Cart extends BaseModel
         }
     }
 
+    /**
+     * Обновить добавленный в корзину продукт
+     *
+     * @param int $id Идентификатор обновляемого продукта
+     * @param int $qty Новое количество обновляемого продукта
+     */
     public function updateItem($id, $qty = 1)
     {
         if (isset($_SESSION['cart'][$id])) {
@@ -58,10 +81,5 @@ class Cart extends BaseModel
             $_SESSION['cart_total']['total_qty'] = $_SESSION['cart_total']['total_qty'] - $newQty;
             $_SESSION['cart_total']['total_price'] -= $_SESSION['cart'][$id]['price'] * $newQty;
         }
-    }
-
-    public function getAllItems()
-    {
-        
     }
 }

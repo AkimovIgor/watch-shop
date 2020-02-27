@@ -68,6 +68,7 @@
                                         </div>
                                     </div>
                                     <div class="caption product-detail text-center">
+                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
                                         <div class="rating">
                                             <?php for ($i = 1; $i <= 5; $i++): ?>
                                             <span class="fa fa-stack">
@@ -80,7 +81,7 @@
                                             </span> 
                                             <?php endfor; ?>
                                         </div>
-                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
+
                                         <span class="price">
                                             <span class="amount"><span class="currencySymbol"><?= $currency['symbol_left'] ?> </span><?= number_format($product->price * $currency['value'], 2, '.', '') ?><span class="currencySymbol"> <?= $currency['symbol_right'] ?></span></span>
                                             <?php if ($product->old_price > 0): ?>
@@ -109,6 +110,7 @@
                                         </div>
                                     </div>
                                     <div class="caption product-detail text-center">
+                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
                                         <div class="rating">
                                             <?php for ($i = 1; $i <= 5; $i++): ?>
                                             <span class="fa fa-stack">
@@ -121,7 +123,7 @@
                                             </span> 
                                             <?php endfor; ?>
                                         </div>
-                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
+
                                         <span class="price">
                                             <span class="amount"><span class="currencySymbol"><?= $currency['symbol_left'] ?> </span><?= number_format($product->price * $currency['value'], 2, '.', '') ?><span class="currencySymbol"> <?= $currency['symbol_right'] ?></span></span>
                                             <?php if ($product->old_price > 0): ?>
@@ -151,6 +153,7 @@
                                         </div>
                                     </div>
                                     <div class="caption product-detail text-center">
+                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
                                         <div class="rating">
                                             <?php for ($i = 1; $i <= 5; $i++): ?>
                                             <span class="fa fa-stack">
@@ -163,7 +166,7 @@
                                             </span> 
                                             <?php endfor; ?>
                                         </div>
-                                        <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
+
                                         <span class="price">
                                             <span class="amount"><span class="currencySymbol"><?= $currency['symbol_left'] ?> </span><?= number_format($product->price * $currency['value'], 2, '.', '') ?><span class="currencySymbol"> <?= $currency['symbol_right'] ?></span></span>
                                             <?php if ($product->old_price > 0): ?>
@@ -213,6 +216,7 @@
                         </div>
                         </div>
                         <div class="caption product-detail text-center">
+                            <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
                             <div class="rating">
                                 <?php for ($i = 1; $i <= 5; $i++): ?>
                                 <span class="fa fa-stack">
@@ -225,7 +229,7 @@
                                 </span> 
                                 <?php endfor; ?>
                             </div>
-                            <h6 data-name="product_name" class="product-name"><a href="product/<?= $product->slug ?>" title="<?= $product->title ?>"><?= $product->title ?></a></h6>
+
                             <span class="price">
                                 <span class="amount"><span class="currencySymbol"><?= $currency['symbol_left'] ?> </span><?= number_format($product->price * $currency['value'], 2, '.', '') ?><span class="currencySymbol"> <?= $currency['symbol_right'] ?></span></span>
                                 <?php if ($product->old_price > 0): ?>

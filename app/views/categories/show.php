@@ -67,23 +67,6 @@
                 </div>
                 </div>
             </div>
-            <!-- <div class="list-group-item mb_10">
-                <label>Size</label>
-                <div id="filter-group3">
-                <div class="checkbox">
-                    <label>
-                    <input value="" type="checkbox"> Big (3)</label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                    <input value="" type="checkbox"> Medium (2)</label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                    <input value="" type="checkbox"> Small (1)</label>
-                </div>
-                </div>
-            </div> -->
             <button id="refine" type="button" class="btn" data-category="<?= $cat['slug'] ?>">Refine Search</button>
             </div>
         </div>

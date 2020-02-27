@@ -6,10 +6,11 @@
     <!-- =====  BANNER STRAT  ===== -->
     <div class="col-sm-12">
         <div class="breadcrumb ptb_20">
-        <h1>Shopping Cart</h1>
+        <h1>Checkout</h1>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li class="active">Shopping Cart</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="cart">Cart</a></li>
+            <li class="active">Checkout</li>
         </ul>
         </div>
     </div>

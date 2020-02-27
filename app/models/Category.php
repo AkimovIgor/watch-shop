@@ -7,6 +7,12 @@ use RedBeanPHP\R;
 
 class Category extends BaseModel
 {
+    /**
+     * Получить список продуктов с определенной категорией
+     *
+     * @param string $category URL категории
+     * @return array|object|bool
+     */
     public function getProducts($category)
     {
         $categories = App::$app->getProperty('categories');
@@ -21,6 +27,12 @@ class Category extends BaseModel
         return false;
     }
 
+    /**
+     * Получить данные категории по её URL
+     *
+     * @param string $slug URL категории
+     * @return array|bool
+     */
     public function getCategory($slug)
     {
         $categories = App::$app->getProperty('categories');
@@ -31,8 +43,15 @@ class Category extends BaseModel
                 }
             }
         }
+        return false;
     }
 
+    /**
+     * Получить идентификатор категории по её URL
+     *
+     * @param string $slug URL категории
+     * @return int|bool
+     */
     public function getCatId($slug)
     {
         $categories = App::$app->getProperty('categories');
@@ -43,5 +62,6 @@ class Category extends BaseModel
                 }
             }
         }
+        return false;
     }
 }

@@ -9,6 +9,9 @@ use FW\Base\Controller;
 
 class BaseController extends Controller
 {
+    /**
+     * @var string Содержит текущую валюту
+     */
     public $currency;
 
     public function __construct($route)

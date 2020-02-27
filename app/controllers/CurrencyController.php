@@ -6,6 +6,9 @@ use FW\App;
 
 class CurrencyController extends BaseController
 {
+    /**
+     * Изменить текущую валюту и запомнить её в куки
+     */
     public function change()
     {
         $currency = isset($_GET['curr']) ? $_GET['curr'] : null;

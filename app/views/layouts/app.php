@@ -251,11 +251,11 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
           <div class="col-md-3 footer-block">
             <h6 class="footer-title ptb_20">Information</h6>
             <ul>
-              <li><a href="#">About Us</a></li>
+              <li><a href="about">About Us</a></li>
               <li><a href="#">Delivery Information</a></li>
               <li><a href="#">Privacy Policy</a></li>
               <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="contact-us">Contact Us</a></li>
             </ul>
           </div>
           <div class="col-md-3 footer-block">
@@ -264,14 +264,14 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
               <li><a href="#">Returns</a></li>
               <li><a href="#">Site Map</a></li>
               <li><a href="#">Wish List</a></li>
-              <li><a href="#">My Account</a></li>
+              <li><a href="<?= isset($user) ? 'user/profile' : 'user/login' ?>">My Account</a></li>
               <li><a href="#">Order History</a></li>
             </ul>
           </div>
           <div class="col-md-3 footer-block">
             <h6 class="footer-title ptb_20">Extras</h6>
             <ul>
-              <li><a href="#">Brands</a></li>
+              <li><a href="brands">Brands</a></li>
               <li><a href="#">Gift Certificates</a></li>
               <li><a href="#">Affiliates</a></li>
               <li><a href="#">Specials</a></li>
@@ -305,7 +305,7 @@ $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? 
               </div>
             </div>
             <div class="col-sm-6">
-              <div class="copyright-part text-center">© 2020 All Rights Reserved Darklook | Developer - <a href="https://vk.com/id363242275">Akimov I.S.</a></div>
+              <div class="copyright-part text-center">© 2020 All Rights Reserved Darklook | Developer - <a style="color: #fa4251;" href="https://vk.com/id363242275">Akimov I.S.</a></div>
             </div>
             <div class="col-sm-3">
               <div class="payment-icon text-right">

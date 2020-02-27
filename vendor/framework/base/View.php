@@ -4,14 +4,14 @@ namespace FW\Base;
 
 class View
 {
-    public $route;
-    public $controller;
-    public $layout;
-    public $view;
-    public $model;
-    public $prefix;
-    public $data = [];
-    public $meta = [];
+    public $route;           // текущий маршрут
+    public $controller;      // текущий контроллер
+    public $layout;          // текуший шаблон
+    public $view;            // текущее представление
+    public $model;           // текущая модель
+    public $prefix;          // префикс к маршруту
+    public $data = [];       // массив данных
+    public $meta = [];       // массив мета-данных
 
     public function __construct($route, $meta, $layout = '', $view = '')
     {
@@ -28,10 +28,18 @@ class View
         }
     }
 
+    /**
+     * Рендер вида и шаблона
+     *
+     * Подключение файлов представления и шаблона с предварительной буферизацией
+     *
+     * @param array $data Массив пользовательских данных
+     * @throws \Exception
+     */
     public function render($data)
     {
         extract($data);
-        $viewFile = APP . '/views/' . upper($this->prefix) . '/' . $this->controller . '/' . $this->view . '.php';
+        $viewFile = APP . '/views/' . lower($this->prefix) . lower($this->controller) . '/' . $this->view . '.php';
         if (is_file($viewFile)) {
             ob_start();
             require_once $viewFile;
@@ -49,6 +57,11 @@ class View
         }
     }
 
+    /**
+     * Получение сформированного html с мета тегами
+     *
+     * @return string
+     */
     public function getMeta()
     {
         return "<title>{$this->meta['title']}</title>

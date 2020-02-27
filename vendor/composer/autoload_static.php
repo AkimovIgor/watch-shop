@@ -30,6 +30,10 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
         array (
             'RedBeanPHP\\' => 11,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'F' => 
         array (
             'FW\\' => 3,
@@ -73,6 +77,10 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
         array (
             0 => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP',
         ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'FW\\' => 
         array (
             0 => __DIR__ . '/..' . '/framework',
@@ -92,20 +100,25 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
     );
 
     public static $classMap = array (
+        'App\\Controllers\\AboutUsController' => __DIR__ . '/../..' . '/app/controllers/AboutUsController.php',
         'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'App\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/controllers/CartController.php',
         'App\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/controllers/CategoriesController.php',
+        'App\\Controllers\\ContactUsController' => __DIR__ . '/../..' . '/app/controllers/ContactUsController.php',
         'App\\Controllers\\CurrencyController' => __DIR__ . '/../..' . '/app/controllers/CurrencyController.php',
         'App\\Controllers\\MainController' => __DIR__ . '/../..' . '/app/controllers/MainController.php',
         'App\\Controllers\\ProductsController' => __DIR__ . '/../..' . '/app/controllers/ProductsController.php',
         'App\\Controllers\\SearchController' => __DIR__ . '/../..' . '/app/controllers/SearchController.php',
+        'App\\Controllers\\ShopController' => __DIR__ . '/../..' . '/app/controllers/ShopController.php',
         'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/controllers/UserController.php',
         'App\\Models\\BaseModel' => __DIR__ . '/../..' . '/app/models/BaseModel.php',
         'App\\Models\\Breadcrumbs' => __DIR__ . '/../..' . '/app/models/Breadcrumbs.php',
         'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/models/Cart.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/models/Category.php',
+        'App\\Models\\ContactUs' => __DIR__ . '/../..' . '/app/models/ContactUs.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/models/Order.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/models/Product.php',
+        'App\\Models\\Search' => __DIR__ . '/../..' . '/app/models/Search.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/models/User.php',
         'App\\Widgets\\Currency\\Currency' => __DIR__ . '/../..' . '/app/widgets/currency/Currency.php',
         'App\\Widgets\\Menu\\MainMenu' => __DIR__ . '/../..' . '/app/widgets/menu/MainMenu.php',
@@ -182,8 +195,12 @@ class ComposerStaticInit3bae0bf7d0df27d57b4c45749c068afe
         'FW\\Pagination\\Paginator' => __DIR__ . '/..' . '/framework/pagination/Paginator.php',
         'FW\\Registry' => __DIR__ . '/..' . '/framework/Registry.php',
         'FW\\Routing\\Router' => __DIR__ . '/..' . '/framework/routing/Router.php',
-        'FW\\Session\\Session' => __DIR__ . '/..' . '/framework/session/Session.php',
         'FW\\Traits\\SingletonTrait' => __DIR__ . '/..' . '/framework/traits/SingletonTrait.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
         'RedBeanPHP\\Adapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter.php',
         'RedBeanPHP\\Adapter\\DBAdapter' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/Adapter/DBAdapter.php',
         'RedBeanPHP\\AssociationManager' => __DIR__ . '/..' . '/gabordemooij/redbean/RedBeanPHP/AssociationManager.php',

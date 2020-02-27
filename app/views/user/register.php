@@ -7,19 +7,11 @@
             <h2 class="main_title">Top category</h2>
             </div>
             <ul class="nav  main-navigation collapse in">
-            <li><a href="#">Appliances</a></li>
-            <li><a href="#">Mobile Phones</a></li>
-            <li><a href="#">Tablet PC & Accessories</a></li>
-            <li><a href="#">Consumer Electronics</a></li>
-            <li><a href="#">Computers & Networking</a></li>
-            <li><a href="#">Electrical & Tools</a></li>
-            <li><a href="#">Apparel</a></li>
-            <li><a href="#">Bags & Shoes</a></li>
-            <li><a href="#">Toys & Hobbies</a></li>
-            <li><a href="#">Watches & Jewelry</a></li>
-            <li><a href="#">Home & Garden</a></li>
-            <li><a href="#">Health & Beauty</a></li>
-            <li><a href="#">Outdoors & Sports</a></li>
+                <?php foreach ($categories as $category): ?>
+                    <?php if ($category['parent_id'] != 0): ?>
+                        <li><a href="categories/<?= $category['slug'] ?>"><?= $category['title'] ?></a></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </ul>
         </div>
         </div>

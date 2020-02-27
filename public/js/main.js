@@ -351,53 +351,6 @@ $(function() {
             }
         });
     });
-
-// $('body').on('click', '.btn-list-grid button', function() {
-//   var view = $(this).attr('id');
-//   if($(this).hasClass('grid-view')) {
-
-//     $(this).addClass('active');
-//     $('.btn-list-grid button.list-view').removeClass('active');
-//   }
-//   else if($(this).hasClass('list-view')) {
-//     $(this).addClass('active');
-//     $('.btn-list-grid button.grid-view').removeClass('active');
-//   }
-//   var order = $('#input-sort').val();
-//   var perpage = $('#input-limit').val();
-//   var slug = $('#refine').data('category');
-//   var page = $_GET('page');
-//   filter = $('#filter-group1 .checkbox :checkbox:checked').map(function(i, el){
-//       return $(el).val();
-//   }).get().join(',');
-//   $.ajax({
-//       url: 'categories/' + slug,
-//       method: 'GET',
-//       data: {slug: slug, min:min, max:max, page:page, filter:filter, order:order, perpage:perpage, view:view},
-//       success: function(res) {
-//       $('.products-ajax').html(res);
-//           var push = '/categories/' + slug;
-//           if (page) {
-//           push += '?page=' + page;
-//           } else {
-//           push += '?page=' + 1;
-//           }
-//           push += '&min=' + min + '&max=' + max;
-//           if (filter) {
-//           push += '&filter=' + filter;
-//           }
-//           if (order) {
-//           push += '&order=' + order;
-//           }
-//           if (perpage) {
-//           push += '&perpage=' + perpage;
-//           }
-//           if (view) {
-//           push += '&view=' + view;
-//           }
-//           history.pushState({}, '', push);
-//       }
-//   });
 });
 
 
@@ -518,37 +471,7 @@ $('body').on('click', '.page-link', function(e) {
             $('.loder').delay(100).fadeOut('slow');
         }
     });
-    // filter = $('#filter-group1 .checkbox :checkbox:checked').map(function(i, el){
-    //     return $(el).val();
-    // }).get().join(',');
-    // $.ajax({
-    //     url: location.href,
-    //     method: 'GET',
-    //     data: {slug: slug, min:min, max:max, page:page, filter:filter},
-    //
-    //     success: function(res) {
-    //
-    //         $('.products-ajax').html(res);
-    //         var push = location.pathname;
-    //
-    //         if (page) {
-    //             push += '?page=' + page;
-    //         } else {
-    //             push += '?page=' + 1;
-    //         }
-    //
-    //         push += '&min=' + min + '&max=' + max;
-    //         if (filter) {
-    //             push += '&filter=' + filter;
-    //         }
-    //
-    //         history.pushState({}, '', location.pathname);
-    //     },
-    //     complete: function() {
-    //         $('.loder').delay(100).fadeOut('slow');
-    //     }
-    // });
-})
+});
 
 
 // Authorisation
@@ -581,6 +504,45 @@ $('body').on('submit', '#login-form', function(e) {
                 window.location = path;
             } else {
                 $('.auth-ajax').html(res);
+            }
+        }
+    });
+});
+
+$('body').on('submit', '#profile-form', function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    $.ajax({
+        url: 'user/change-profile',
+        method: 'POST',
+        data: data,
+        success: function(res) {
+            if (res == 2) {
+                window.location.reload();
+            } else {
+                $('.profile-ajax').html(res);
+            }
+        },
+        error: function() {
+            console.log(data)
+        }
+    });
+});
+
+
+// Contact Us
+$('body').on('submit', '#contact_body', function(e) {
+    e.preventDefault();
+    var data = $(this).serialize();
+    $.ajax({
+        url: 'contact-us/send-message',
+        method: 'POST',
+        data: data,
+        success: function(res) {
+            if (res == 2) {
+                window.location = path;
+            } else {
+                $('.contact-form').html(res);
             }
         }
     });

@@ -10,6 +10,11 @@ use App\Models\Search;
 
 class SearchController extends BaseController
 {
+    /**
+     * Быстрый поиск
+     *
+     * Получить список товаров для отображения в выпадающем меню поиска при вводе
+     */
     public function typeahead()
     {
         if ($this->isAjax()) {
@@ -22,10 +27,15 @@ class SearchController extends BaseController
         die;
     }
 
+    /**
+     * Страница поиска
+     */
     public function index()
     {
+        // получить данные поискового запроса
         $query = ! empty($_GET['s']) ? hsc($_GET['s']) : null;
 
+        // получить остальные данные из запроса
         $currency = $this->currency;
         $min = isset($_GET['min']) ? (int)$_GET['min'] / $currency['value'] : 0 * $currency['value'];
         $max = isset($_GET['max']) ? (int)$_GET['max'] / $currency['value'] : 2000 * $currency['value'];
@@ -34,11 +44,11 @@ class SearchController extends BaseController
         $orderList = ['title|DESC', 'title|ASC', 'price|ASC', 'price|DESC', 'rating|DESC', 'rating|ASC'];
         if (! in_array($order, $orderList)) redirect();
         $orderBy = explode('|', $order);
-        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $perpage = isset($_GET['perpage']) ? (int)$_GET['perpage'] : App::$app->getProperty('pagination_per_page');
 
+        // сформировать SQL для получения продуктов
         $sql = "status = 1 AND price BETWEEN $min AND $max AND title LIKE ?";
-        
+
+        // сформировать фильтр на основе полученных из запроса данных
         if ($filter) {
             $filter = explode(',', $filter);
             $sqlStr = 'SELECT product_id FROM modifications WHERE ';
@@ -50,21 +60,25 @@ class SearchController extends BaseController
         }
         $search = new BaseModel();
 
+        // получить список искомых продуктов и сформировать постраничную навигацию
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $perpage = isset($_GET['perpage']) ? (int)$_GET['perpage'] : App::$app->getProperty('pagination_per_page');
         $totalCount =  R::count('products', $sql, ["%{$query}%"]);
-        
         $pagination = new Paginator($currentPage, $perpage, $totalCount);
-        
         $offset = $pagination->getOffset();
         $products = $search->getAllForPaginate('products', $sql, $orderBy[1], $orderBy[0], $perpage, $offset, ["%{$query}%"]);
 
+        // получить доп. контент
         $tops = R::findAll('products', 'is_top = 1');
         $categories = App::$app->getProperty('categories');
         $brands = R::findAll('brands');
 
+        // проверить, был ли сделан AJAX запрос
         if ($this->isAjax()) {
             $this->loadView('search_tpl', compact('products', 'currency', 'pagination', 'min', 'max', 'order', 'filter', 'perpage'));
         }
 
+        // установить мета и передать нужные данные в представление
         $this->setMeta('Поиск по запросу: ' . $query);
         $this->setData(compact('query', 'categories', 'products', 'tops', 'brands', 'currency', 'pagination', 'min', 'max', 'filter', 'order', 'perpage'));
     }

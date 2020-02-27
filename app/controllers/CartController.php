@@ -10,6 +10,9 @@ use RedBeanPHP\R;
 
 class CartController extends BaseController
 {
+    /**
+     * Главная страница корзины
+     */
     public function index()
     {
         $products = $_SESSION['cart'];
@@ -21,9 +24,11 @@ class CartController extends BaseController
         $this->setData(compact('products', 'currency', 'tops', 'categories', 'brands'));
     }
 
+    /**
+     * Добавление в корзину
+     */
     public function add()
     {
-        // dd($_GET);
         $id = ! empty($_GET['id']) ? (int) htmlspecialchars($_GET['id']) : null;
         $quantity = ! empty($_GET['qty']) ? (int) htmlspecialchars($_GET['qty']) : null;
         $mod = ! empty($_GET['mod']) ? (int) htmlspecialchars($_GET['mod']) : null;
@@ -45,6 +50,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Удаление из корзины-виджета
+     */
     public function delete()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -59,6 +67,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Удаление из главной корзины
+     */
     public function deleteMain()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -74,6 +85,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Удаление товара из списка заказа
+     */
     public function deleteOrder()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -89,6 +103,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Обновление корзины-виджета
+     */
     public function update()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -106,6 +123,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Обновление главной корзины
+     */
     public function updateCart()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -123,6 +143,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Обновление списка заказа
+     */
     public function updateOrder()
     {
         $id = isset($_GET['id']) ? $_GET['id'] : null;
@@ -140,6 +163,9 @@ class CartController extends BaseController
         redirect();
     }
 
+    /**
+     * Страница оформления заказа
+     */
     public function checkout()
     {
         $products = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
@@ -151,6 +177,9 @@ class CartController extends BaseController
         $this->setData(compact('products', 'currency', 'tops', 'categories', 'brands'));
     }
 
+    /**
+     * Авторизация при оформлении заказа
+     */
     public function signin()
     {
         $userModel = new User();
@@ -181,6 +210,9 @@ class CartController extends BaseController
         }
     }
 
+    /**
+     * Регистрация при оформлении заказа
+     */
     public function signup()
     {
         $userModel = new User();
@@ -205,6 +237,9 @@ class CartController extends BaseController
         }
     }
 
+    /**
+     * Подтверждение оформления заказа
+     */
     public function confirmOrder()
     {
         $user = isset($_COOKIE['user']) ? $_COOKIE['user'] : isset($_SESSION['user']) ? $_SESSION['user'] : null;
@@ -223,7 +258,6 @@ class CartController extends BaseController
                 $order->mailOrder($orderId, $user['email']);
                 redirect('/');
             }
-            
         }
     }
 }

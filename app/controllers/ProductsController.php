@@ -9,6 +9,9 @@ use RedBeanPHP\R;
 
 class ProductsController extends BaseController
 {
+    /**
+     * Страница отображения одного товара и информации о нём
+     */
     public function show()
     {
         $slug = $this->route['slug'];
@@ -21,6 +24,7 @@ class ProductsController extends BaseController
             WHERE related_products.product_id = ?", [$product->id]
         );
         $tops = R::findAll('products', 'is_top = 1');
+        $brands = R::findAll('brands');
         $images = R::findAll('product_images', 'product_id = ?', [$product->id]);
         $currency = $this->currency;
         $categories = App::$app->getProperty('categories');
@@ -36,14 +40,15 @@ class ProductsController extends BaseController
 
         $mods = R::findAll('modifications', 'product_id = ?', [$product->id]);
 
-        // breadcrumbs
+        // сформировать breadcrumbs (хлебные крошки)
         $breadcrumbs = Breadcrumbs::getBreadcrumbs($product->category_id, $product->title);
 
         // установить мета данные
-        $this->setMeta($product->title, $product->description, $product->keywords);
+        $this->setMeta("DarkLook | {$product->title}", $product->description, $product->keywords);
+
         // передать данные в представление
         $this->setData(compact(
-            'product', 
+            'product',
             'currency', 
             'categories',
             'brand',
@@ -51,6 +56,7 @@ class ProductsController extends BaseController
             'images', 
             'recentlyViewed', 
             'tops',
+            'brands',
             'mods',
             'breadcrumbs'
         ));

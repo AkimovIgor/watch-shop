@@ -6,6 +6,13 @@ use FW\App;
 
 class Breadcrumbs extends BaseModel
 {
+    /**
+     * Получить "хлебные крошки" в html
+     *
+     * @param int $categoryId Идентификатор категории
+     * @param string $name Имя продукта
+     * @return string
+     */
     public static function getBreadcrumbs($categoryId, $name = '')
     {
         $categories = App::$app->getProperty('categories');
@@ -13,7 +20,11 @@ class Breadcrumbs extends BaseModel
         $breadcrumbs = "<li><a href='/'>Home</a></li>";
         if ($breadcrumbsArr) {
             foreach($breadcrumbsArr as $slug => $title) {
-                $breadcrumbs .= "<li><a href='/categories/{$slug}'>{$title}</a></li>";
+                if ($slug != 'categories') {
+                    $breadcrumbs .= "<li><a href='/categories/{$slug}'>{$title}</a></li>";
+                } else {
+                    $breadcrumbs .= "<li><a href='/{$slug}'>{$title}</a></li>";
+                }
             }
         }
         if ($name) {
@@ -22,6 +33,13 @@ class Breadcrumbs extends BaseModel
         return $breadcrumbs;
     }
 
+    /**
+     * Получить массив с частями "хлебных крошек"
+     *
+     * @param $categories Массив всех категорий
+     * @param $id Идентификатор текущей категории
+     * @return array|bool
+     */
     public static function getBreadcrumbsParts($categories, $id)
     {
         if (! $id) return false;

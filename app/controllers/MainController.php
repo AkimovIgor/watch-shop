@@ -6,6 +6,9 @@ use RedBeanPHP\R;
 
 class MainController extends BaseController
 {
+    /**
+     * Главная страница сайта
+     */
     public function index()
     {
         $currency = $this->currency;
